@@ -2,15 +2,15 @@
   "project": [
     {
       "id": 1,
-      "title": "Projcet 1 new",
-      "detail": "project detail 1 new",
-      "complete": true
+      "title": "Projcet 1",
+      "detail": "project detail 1",
+      "complete": false
     },
     {
       "id": 2,
       "title": "Projcet 2",
       "detail": "project detail 2",
-      "complete": false
+      "complete": true
     }
   ]
 }

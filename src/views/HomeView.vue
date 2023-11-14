@@ -1,25 +1,45 @@
 <template>
   <div class="home">
     <h1>HOME</h1>
-    <div v-for="project in projects" :key="project.id">
+    <FilterNav @filterValue="current=$event" :current="current"></FilterNav>
+    <div v-for="project in filteredproject" :key="project.id">
       <SingleProject :project="project" @delete="deleteproject" @complete="completeProject"></SingleProject>
     </div>
   </div>
+  
 </template>
 
 <script>
+import FilterNav from '../components/FilterNav'
 import SingleProject from '../components/SingleProject'
 
 
 export default {
   name: 'HomeView',
   components: {
+    FilterNav,
     SingleProject,
     
   },
   data(){
     return {
-      projects:[]
+      projects:[],
+      current:"all"
+    }
+  },
+  computed:{
+    filteredproject(){
+      if(this.current === "complete"){
+        return this.projects.filter((p)=>{
+          return p.complete
+        })
+      }
+      if(this.current === "ongoing"){
+        return this.projects.filter((p)=>{
+          return !p.complete
+      })
+      }
+      return this.projects;
     }
   },
   methods:{
