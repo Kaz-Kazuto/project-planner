@@ -27,7 +27,7 @@ export default {
       this.projects=this.projects.filter(project=>{
         return project.id!=id; 
       })
-    },
+    },  
     completeProject(id){
       let findProject=this.projects.find(project=>{
         return project.id===id;
